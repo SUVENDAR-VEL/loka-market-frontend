@@ -1,11 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, Send, CheckCircle2, ChevronDown } from 'lucide-react';
 
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
+  const location = useLocation();
+
+  // Pre-fill subject from URL query param (e.g. from Services page "Discuss this service")
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const subject = params.get('subject');
+    if (subject) {
+      setFormData(prev => ({ ...prev, subject }));
+    }
+  }, [location.search]);
 
   // Web3Forms Access Key
   // To receive real emails: Get your free key from https://web3forms.com and paste it below
