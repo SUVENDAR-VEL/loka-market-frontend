@@ -17,10 +17,30 @@ export default function About() {
   ];
 
   const team = [
-    { name: 'Alex Sterling', role: 'CEO & Founder', image: 'https://i.pravatar.cc/300?img=11' },
-    { name: 'Sarah Chen', role: 'Creative Director', image: 'https://i.pravatar.cc/300?img=5' },
-    { name: 'Marcus Johnson', role: 'Head of Technology', image: 'https://i.pravatar.cc/300?img=13' },
-    { name: 'Elena Rodriguez', role: 'Marketing Lead', image: 'https://i.pravatar.cc/300?img=9' },
+    {
+      name: 'Senthil Kumar',
+      role: 'Software Engineer',
+      image: 'https://images.unsplash.com/photo-1552642986-ccb41e7059e7?w=400&h=400&auto=format&fit=crop&q=80',
+      gradient: 'from-primary to-blue-500',
+    },
+    {
+      name: 'Praveen Murugan',
+      role: 'Software Engineer',
+      image: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?w=400&h=400&auto=format&fit=crop&q=80',
+      gradient: 'from-secondary to-violet-600',
+    },
+    {
+      name: 'Dinesh Babu',
+      role: 'Software Engineer',
+      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&auto=format&fit=crop&q=80',
+      gradient: 'from-emerald-500 to-teal-500',
+    },
+    {
+      name: 'Murugesan Raja',
+      role: 'Software Engineer',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&auto=format&fit=crop&q=80',
+      gradient: 'from-amber-500 to-orange-500',
+    },
   ];
 
   return (
@@ -29,14 +49,14 @@ export default function About() {
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/10 to-transparent blur-3xl -z-10" />
         <div className="container mx-auto px-4 text-center">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl md:text-6xl font-bold mb-6"
           >
             About <span className="gradient-text">AthiLoka</span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -54,8 +74,12 @@ export default function About() {
             <motion.div {...fadeIn} className="lg:w-1/2">
               <div className="relative rounded-2xl overflow-hidden glass-card p-2 border-white/10">
                 <div className="aspect-video bg-dark-lighter rounded-xl overflow-hidden relative">
-                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 mix-blend-overlay"></div>
-                   <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Team collaborating" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-secondary/30 mix-blend-overlay" />
+                  <img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                    alt="Team collaborating"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </motion.div>
@@ -80,7 +104,7 @@ export default function About() {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -108,7 +132,7 @@ export default function About() {
           </motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -116,11 +140,21 @@ export default function About() {
                 transition={{ delay: i * 0.1 }}
                 className="group text-center"
               >
-                <div className="relative mb-6 mx-auto w-48 h-48 rounded-full overflow-hidden border-4 border-white/10 group-hover:border-primary/50 transition-colors">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className="relative mb-6 mx-auto w-48 h-48">
+                  {/* Gradient glow ring */}
+                  <div className={`absolute -inset-1 rounded-full bg-gradient-to-br ${member.gradient} opacity-40 group-hover:opacity-80 blur-sm transition-all duration-300`} />
+                  {/* Photo circle */}
+                  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 group-hover:border-white/30 transition-colors shadow-2xl">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
                 <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                <p className="text-primary">{member.role}</p>
+                <p className="text-primary font-medium">{member.role}</p>
               </motion.div>
             ))}
           </div>
