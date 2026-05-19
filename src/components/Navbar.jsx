@@ -39,11 +39,14 @@ export default function Navbar() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg shadow-amber-500/20 transition-all border border-white/10 group-hover:border-amber-500/50 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+            <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg shadow-cyan-500/20 transition-all border border-white/10 group-hover:border-cyan-500/50 relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
               <img src={logoImg} alt="AthiLoka Logo" className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110 relative z-10" />
             </div>
-            <span className="text-2xl font-black text-white tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-amber-300 group-hover:to-yellow-500 transition-all duration-300">AthiLoka</span>
+            <div className="flex flex-col justify-center">
+              <span className="text-2xl font-black text-white tracking-tight leading-none group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-cyan-400 transition-all duration-300">AthiLoka</span>
+              <span className="text-[0.6rem] uppercase tracking-widest text-slate-400 font-bold mt-1">Where business evolves.</span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
