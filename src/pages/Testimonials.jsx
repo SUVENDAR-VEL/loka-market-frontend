@@ -10,7 +10,7 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      name: 'Sarah Jenkins',
+      name: 'Aditi Desai',
       role: 'CMO, TechNova',
       image: 'https://i.pravatar.cc/150?img=1',
       text: 'AthiLoka completely transformed our digital presence. Their strategic approach to our brand overhaul resulted in a 300% increase in lead generation within the first quarter.',
@@ -18,7 +18,7 @@ export default function Testimonials() {
     },
     {
       id: 2,
-      name: 'David Chen',
+      name: 'Rohan Mehta',
       role: 'Founder, UrbanStyle',
       image: 'https://i.pravatar.cc/150?img=11',
       text: 'The web app they built for us is nothing short of extraordinary. The attention to detail and focus on performance helped us scale our e-commerce operations globally.',
@@ -26,7 +26,7 @@ export default function Testimonials() {
     },
     {
       id: 3,
-      name: 'Elena Rodriguez',
+      name: 'Meera Reddy',
       role: 'Marketing Director, Aura Health',
       image: 'https://i.pravatar.cc/150?img=5',
       text: 'Working with AthiLoka on our video marketing campaign was a breeze. They understood our vision perfectly and delivered cinematic quality that our audience loved.',
@@ -34,7 +34,7 @@ export default function Testimonials() {
     },
     {
       id: 4,
-      name: 'James Wilson',
+      name: 'Siddharth Iyer',
       role: 'CEO, PrimeRealEstate',
       image: 'https://i.pravatar.cc/150?img=8',
       text: 'Their SEO and digital marketing strategies put us on the map. We are now ranking #1 for our most competitive keywords.',
@@ -46,6 +46,126 @@ export default function Testimonials() {
       role: 'VP Product, FinFlow',
       image: 'https://i.pravatar.cc/150?img=9',
       text: 'The UI/UX design they created for our mobile app is stunning and incredibly intuitive. User engagement has skyrocketed since the redesign.',
+      rating: 5
+    },
+    {
+      id: 6,
+      name: 'Vikram Singh',
+      role: 'CTO, DataSync',
+      image: 'https://i.pravatar.cc/150?img=12',
+      text: 'AthiLoka engineered a custom ERP solution that streamlined our entire supply chain. Their technical expertise is truly unmatched.',
+      rating: 5
+    },
+    {
+      id: 7,
+      name: 'Priya Sharma',
+      role: 'Head of Brand, Lotus Lifestyle',
+      image: 'https://i.pravatar.cc/150?img=10',
+      text: 'From the logo redesign to the complete brand book, they captured the exact essence of our luxury brand. Phenomenal creativity.',
+      rating: 5
+    },
+    {
+      id: 8,
+      name: 'Anand Kumar',
+      role: 'Director of Growth, ScaleUp',
+      image: 'https://i.pravatar.cc/150?img=15',
+      text: 'Their performance marketing campaigns dropped our Customer Acquisition Cost by 45%. We could not be happier with the ROI.',
+      rating: 5
+    },
+    {
+      id: 9,
+      name: 'Kavya Rao',
+      role: 'E-Commerce Manager, Bloom',
+      image: 'https://i.pravatar.cc/150?img=16',
+      text: 'Our Shopify conversion rates doubled after AthiLoka implemented their advanced UX optimizations. A brilliant partner.',
+      rating: 5
+    },
+    {
+      id: 10,
+      name: 'Raghav Krishnan',
+      role: 'COO, NextGen Logistics',
+      image: 'https://i.pravatar.cc/150?img=33',
+      text: 'They built a scalable web platform that handles thousands of concurrent users flawlessly. Highly professional execution.',
+      rating: 5
+    },
+    {
+      id: 11,
+      name: 'Shruti Verma',
+      role: 'Founder, Foodie Haven',
+      image: 'https://i.pravatar.cc/150?img=24',
+      text: 'The React Native app they developed is lightning fast and perfectly responsive on both iOS and Android. Our customers love it!',
+      rating: 5
+    },
+    {
+      id: 12,
+      name: 'Arjun Das',
+      role: 'Marketing Lead, EduTech Pro',
+      image: 'https://i.pravatar.cc/150?img=59',
+      text: 'The 3D motion graphics they delivered for our ad campaigns completely changed the way we tell our story. Visually stunning work.',
+      rating: 5
+    },
+    {
+      id: 13,
+      name: 'Sneha Joshi',
+      role: 'CEO, Boutique Maison',
+      image: 'https://i.pravatar.cc/150?img=43',
+      text: 'Their comprehensive SEO audit and content strategy helped us dominate the local search results in less than 3 months.',
+      rating: 5
+    },
+    {
+      id: 14,
+      name: 'Omar Farooq',
+      role: 'Operations Head, BuildRight',
+      image: 'https://i.pravatar.cc/150?img=60',
+      text: 'AthiLoka integrated all our legacy databases into a sleek, modern dashboard. We now have real-time visibility into our business.',
+      rating: 5
+    },
+    {
+      id: 15,
+      name: 'Divya Nair',
+      role: 'Director, Green Energy Co.',
+      image: 'https://i.pravatar.cc/150?img=47',
+      text: 'Our corporate identity feels fresh, modern, and perfectly aligned with our sustainable mission, thanks to their branding experts.',
+      rating: 5
+    },
+    {
+      id: 16,
+      name: 'Gaurav Chawla',
+      role: 'Founder, FitnessAI',
+      image: 'https://i.pravatar.cc/150?img=53',
+      text: 'They transformed our complex AI backend into a beautifully simple and intuitive consumer-facing application.',
+      rating: 5
+    },
+    {
+      id: 17,
+      name: 'Neha Kapoor',
+      role: 'CMO, StyleHub',
+      image: 'https://i.pravatar.cc/150?img=38',
+      text: 'The social media campaigns they orchestrated went viral. Our brand engagement has never been this high before.',
+      rating: 5
+    },
+    {
+      id: 18,
+      name: 'Rahul Bhatia',
+      role: 'Product Owner, FinTech Forward',
+      image: 'https://i.pravatar.cc/150?img=13',
+      text: 'They delivered the project two weeks ahead of schedule with zero major bugs. Their development pipeline is incredibly solid.',
+      rating: 5
+    },
+    {
+      id: 19,
+      name: 'Anjali Gupta',
+      role: 'Event Director, Global Summits',
+      image: 'https://i.pravatar.cc/150?img=32',
+      text: 'The promotional videos and motion graphics they created were the highlight of our international summit.',
+      rating: 5
+    },
+    {
+      id: 20,
+      name: 'Karthik Menon',
+      role: 'CEO, Menon Holdings',
+      image: 'https://i.pravatar.cc/150?img=68',
+      text: 'A true strategic partner. They don’t just execute tasks; they provide vision and guidance that drives real business growth.',
       rating: 5
     }
   ];
@@ -117,16 +237,8 @@ export default function Testimonials() {
                       "{testimonial.text}"
                     </p>
                     
-                    <div className="flex items-center gap-4 mt-auto">
-                      <img 
-                        src={testimonial.image} 
-                        alt={testimonial.name} 
-                        className="w-14 h-14 rounded-full object-cover border-2 border-primary/50"
-                      />
-                      <div>
-                        <h4 className="font-bold text-white text-lg">{testimonial.name}</h4>
-                        <p className="text-primary text-sm font-medium">{testimonial.role}</p>
-                      </div>
+                    <div className="mt-auto">
+                      <h4 className="font-bold text-white text-lg text-primary">{testimonial.name}</h4>
                     </div>
                   </div>
                 </SwiperSlide>
