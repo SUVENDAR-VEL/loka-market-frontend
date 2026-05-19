@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import logoImg from '../assets/logo.png';
 
 // Social Media SVG Icons
 const InstagramIcon = () => (
@@ -53,11 +54,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Info */}
           <div className="space-y-6">
-            <Link to="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
-                A
+            <Link to="/" className="flex items-center gap-3 group w-fit">
+              <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg shadow-amber-500/20 transition-all border border-white/10 group-hover:border-amber-500/50 relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+                <img src={logoImg} alt="AthiLoka Logo" className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110 relative z-10" />
               </div>
-              <span className="text-2xl font-bold text-white tracking-tight">AthiLoka</span>
+              <span className="text-2xl font-black text-white tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-amber-300 group-hover:to-yellow-500 transition-all duration-300">AthiLoka</span>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
               Where Business Evolves. We help brands scale through innovative technology, marketing, and creative branding solutions.

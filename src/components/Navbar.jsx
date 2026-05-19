@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logoImg from '../assets/logo.png';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -37,11 +38,12 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl group-hover:shadow-lg group-hover:shadow-primary/50 transition-all">
-              A
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg shadow-amber-500/20 transition-all border border-white/10 group-hover:border-amber-500/50 relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-yellow-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+              <img src={logoImg} alt="AthiLoka Logo" className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110 relative z-10" />
             </div>
-            <span className="text-2xl font-bold text-white tracking-tight">AthiLoka</span>
+            <span className="text-2xl font-black text-white tracking-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-amber-300 group-hover:to-yellow-500 transition-all duration-300">AthiLoka</span>
           </Link>
 
           {/* Desktop Nav */}
