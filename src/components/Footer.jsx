@@ -109,15 +109,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-slate-400">
                 <MapPin className="text-primary mt-1 shrink-0" size={18} />
-                <span>123 Innovation Drive, Tech City, TC 90210</span>
+                <span>Palani Andavar Koil St, Vadapalani, Chennai, Tamil Nadu 600026</span>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <Phone className="text-primary shrink-0" size={18} />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 93123 89898</span>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <Mail className="text-primary shrink-0" size={18} />
-                <span>hello@athiloka.com</span>
+                <span>snackskaavaalaa@gmail.com</span>
               </li>
             </ul>
           </div>

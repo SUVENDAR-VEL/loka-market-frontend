@@ -4,13 +4,60 @@ import { Mail, Phone, MapPin, Send, CheckCircle2, ChevronDown } from 'lucide-rea
 
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
 
-  const handleSubmit = (e) => {
+  // Web3Forms Access Key
+  // To receive real emails: Get your free key from https://web3forms.com and paste it below
+  const WEB3FORMS_ACCESS_KEY = "4bee89f1-fa0c-4869-97e5-d135beaf383c";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+
+    // If key is still placeholder, simulate a successful send for dev/preview purposes
+    if (WEB3FORMS_ACCESS_KEY === "YOUR_WEB3FORMS_ACCESS_KEY_HERE") {
+      setTimeout(() => {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        setIsSubmitting(false);
+        setTimeout(() => setIsSubmitted(false), 5000);
+      }, 1000);
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: "AthiLoka Website Contact Form"
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        alert("Something went wrong. Please check your Web3Forms access key.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send message. Please check your network connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const faqs = [
@@ -90,7 +137,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={e => setFormData({...formData, name: e.target.value})}
                       className="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-                      placeholder="John Doe"
+                      placeholder="Vel"
                     />
                   </div>
                   <div className="space-y-2">
@@ -101,20 +148,33 @@ export default function Contact() {
                       value={formData.email}
                       onChange={e => setFormData({...formData, email: e.target.value})}
                       className="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-                      placeholder="john@example.com"
+                      placeholder="vel@gmail.com"
                     />
                   </div>
                 </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-300">Subject</label>
-                  <input 
-                    type="text" 
-                    required
-                    value={formData.subject}
-                    onChange={e => setFormData({...formData, subject: e.target.value})}
-                    className="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
-                    placeholder="Project Inquiry"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-slate-300">Mobile Number</label>
+                    <input 
+                      type="tel" 
+                      required
+                      value={formData.phone}
+                      onChange={e => setFormData({...formData, phone: e.target.value})}
+                      className="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                      placeholder="+91 98765 43210"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-slate-300">Subject</label>
+                    <input 
+                      type="text" 
+                      required
+                      value={formData.subject}
+                      onChange={e => setFormData({...formData, subject: e.target.value})}
+                      className="w-full bg-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                      placeholder="Project Inquiry"
+                    />
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-slate-300">Message</label>
@@ -127,8 +187,14 @@ export default function Contact() {
                     placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
-                <button type="submit" className="btn-primary w-full flex items-center justify-center gap-2 py-4 text-lg">
-                  Send Message <Send size={20} />
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className={`btn-primary w-full flex items-center justify-center gap-2 py-4 text-lg transition-all ${
+                    isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'} <Send size={20} className={isSubmitting ? 'animate-pulse' : ''} />
                 </button>
               </form>
             </motion.div>
@@ -149,7 +215,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-lg font-bold text-white mb-1">Our Office</h4>
-                      <p className="text-slate-400">123 Innovation Drive, Tech City, TC 90210, United States</p>
+                      <p className="text-slate-400">Palani Andavar Koil St, Vadapalani, Chennai, Tamil Nadu 600026</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -158,7 +224,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-lg font-bold text-white mb-1">Phone Number</h4>
-                      <p className="text-slate-400">+1 (555) 123-4567</p>
+                      <p className="text-slate-400">+91 93123 89898</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -167,7 +233,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-lg font-bold text-white mb-1">Email Address</h4>
-                      <p className="text-slate-400">hello@athiloka.com</p>
+                      <p className="text-slate-400">snackskaavaalaa@gmail.com</p>
                     </div>
                   </div>
                 </div>
@@ -221,12 +287,20 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map Placeholder */}
-      <section className="h-[400px] w-full bg-dark-lighter relative border-t border-white/5">
-        <div className="absolute inset-0 flex items-center justify-center flex-col gap-4 text-slate-500">
-          <MapPin size={48} className="opacity-20" />
-          <p className="font-medium tracking-widest uppercase text-sm">Interactive Map Integration Here</p>
-        </div>
+      {/* Real Interactive Google Map */}
+      <section className="h-[450px] w-full relative border-t border-white/5 overflow-hidden">
+        <iframe
+          src="https://maps.google.com/maps?q=Palani%20Andavar%20Koil%20St,%20Vadapalani,%20Chennai,%20Tamil%20Nadu%20600026&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style={{ 
+            border: 0,
+          }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="AthiLoka Office Location Map"
+        ></iframe>
       </section>
     </div>
   );
